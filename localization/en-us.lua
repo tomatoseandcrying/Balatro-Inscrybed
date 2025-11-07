@@ -59,7 +59,7 @@
 					},
 					{
 						"{C:chips}Chip{} amount increases by {C:attention}#1#",
-						"for {C:attention}every{} Bee Joker or sigil",
+						"for {C:attention}every{} other Bee Joker",
 					}
                 }
             },

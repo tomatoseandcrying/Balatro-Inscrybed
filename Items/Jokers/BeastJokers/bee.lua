@@ -17,16 +17,6 @@ local bee = {
     atlas = "leshy_cards",
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i].sigil ~= nil then
-                    if context.scoring_hand[i].sigil[1] ~= nil and context.scoring_hand[i].sigil[1] == "insc_bees_within_sigil" then
-                        card.ability.extra.perma_bonus = card.ability.extra.perma_bonus + card.ability.extra.perma_bonus_mod
-                    end
-                    if context.scoring_hand[i].sigil[2] ~= nil and context.scoring_hand[i].sigil[2] == "insc_bees_within_sigil" then
-                        card.ability.extra.perma_bonus = card.ability.extra.perma_bonus + card.ability.extra.perma_bonus_mod
-                    end
-                end
-            end
             if context.other_card:get_id() == 12 then
                 context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.perma_bonus
                 return {
