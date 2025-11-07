@@ -4,7 +4,7 @@ local alpha = {
     key = "alpha",
     insc_type = "Canine",
     pos = { x = 1, y = 2 },
-    config = { insc_sacrifice_sigils = {"leader"}, extra = { mult = 10 } },
+    config = { insc_sacrifice_sigils = {"leader"}, extra = { id_check = 0, mult = 7 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -16,31 +16,19 @@ local alpha = {
     blueprint_compat = true,
     atlas = "leshy_cards",
     calculate = function(self, card, context)
-        if context.joker_main then
-            return {
-				mult = card.ability.extra.mult,
-				card = card
-			}
-        end
-    end,
-    update = function(self, card, dt)
-        card.ability.extra.mult = 0
-        if G.jokers ~= nil then
-            for i = 1, #G.jokers.cards do
-                local other_joker = G.jokers.cards[i]
-                if not other_joker.debuff then
-                    if other_joker.config.center.rarity == 1 then
-				        card.ability.extra.mult = card.ability.extra.mult + 5
-                    elseif other_joker.config.center.rarity == 2 then
-				        card.ability.extra.mult = card.ability.extra.mult + 10
-                    elseif other_joker.config.center.rarity == 3 then
-				        card.ability.extra.mult = card.ability.extra.mult + 20
-                    elseif other_joker.config.center.rarity == 4 then
-				        card.ability.extra.mult = card.ability.extra.mult + 50
-                    end
+        if context.individual and context.cardarea == G.play then
+            for i = 1, #context.scoring_hand do
+                if i == 1 then
+                    card.ability.extra.id_check = context.scoring_hand[i]:get_id()
                 end
             end
+            if context.other_card:get_id() < card.ability.extra.id_check then
+                return {
+				    mult = card.ability.extra.mult,
+				    card = context.other_card
+			    }
+            end
         end
-    end
+    end,
 }
 return {name = {"BeastJokers"}, items = {alpha}}

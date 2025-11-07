@@ -53,12 +53,14 @@
 			j_insc_bee = {
                 name = "Bee",
                 text = {
-					"Played {C:spades}Spade{} cards gain",
-					"{C:chips}+#1#{} Chips permanently",
-					"Chip amount granted",
-					"increases by {C:attention}#1#{} for",
-					"every bee joker or sigil",
-					"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
+					{
+						"Played {C:attention}Queen{} cards gain",
+						"{C:chips}+#2#{} Chips permanently",
+					},
+					{
+						"{C:chips}Chip{} amount increases by {C:attention}#1#",
+						"for {C:attention}every{} Bee Joker or sigil",
+					}
                 }
             },
 			j_insc_beehive = {
@@ -78,26 +80,31 @@
 			j_insc_black_goat = {
                 name = "Black Goat",
                 text = {
-					"When this joker is {C:red}destroyed{} or",
-					"{C:money}sold{} it is done so {C:attention}three{} times"
+					"When this Joker is {C:red}destroyed",
+					"or {C:money}sold{} it is done so {C:attention}three",
+					"times"
                 }
             },
 			j_insc_alpha = {
                 name = "Alpha",
                 text = {
-					"This Joker has Mult {C:attention}equal{}",
-					"to all Jokers {C:dark_edition}rarity",
-					"{C:inactive}({C:common}+5{}{C:inactive}->{C:uncommon}+10{}{C:inactive}->{C:rare}+20{}{C:inactive}->{C:legendary}+50{}{C:inactive})",
-					"{C:inactive}(Currently {C:mult}+#1#{} {C:inactive}Mult)",
+					"All cards with a {C:attention}lower{} rank",
+					"than the {C:attention}first{} scored card",
+					"grant {C:mult}+#1#{} Mult"
                 }
             },
 			j_insc_adder = {
                 name = "Adder",
                 text = {
-					"{X:mult,C:white}X#1#{} Mult, {C:attention}Retriggers{} an additional",
-					"time for each Joker {C:red}destroyed{}",
-					"not {C:money}sold",
-					"{C:inactive}(Currently {C:attention}#2#{} {C:inactive}Retriggers)",
+					{
+						"Retriggers an {C:attention}additional",
+						"time for each Joker",
+						"{C:red}destroyed{} not {C:money}sold",
+						"{C:inactive}(Currently {C:attention}#2#{} {C:inactive}Retriggers)",
+					},
+					{
+						"{X:mult,C:white}X#1#{} Mult"
+					}
                 }
             },
 			j_insc_beaver = {
@@ -117,9 +124,10 @@
 			j_insc_bullfrog = {
                 name = "Bullfrog",
                 text = {
-					'The {C:attention}highest{} rank scored {C:diamonds}diamond',
-					'card gives {C:attention}double{} its rank as',
-					'{C:mult}Mult'
+					"All cards with a lower rank",
+					'The {C:attention}highest{} rank scored',
+					'{C:diamonds}diamond{} card gives {C:attention}double',
+					'its rank as {C:mult}Mult'
                 }
             },
 		},
@@ -142,14 +150,14 @@
 			ev_insc_sacrifice ={
 				name="Sacrifice",
 				text={
-					"{C:red}Sacrifice{} a joker",
+					"{C:red}Sacrifice{} a Joker",
 					"for it's sigil",
 				},
 			},
 			ev_insc_campfire ={
 				name="Campfire",
 				text={
-					"{C:attention}Increase{} a jokers",
+					"{C:attention}Increase{} a Jokers",
 					"stats",
 				},
 			},
@@ -180,7 +188,7 @@
 				text = {
 					"When a card", 
 					"bearing this Sigil is {C:attention}Discarded{}",
-					"Create a random joker",
+					"Create a random Joker",
 					},
 			},
 			insc_overclocked_sigil ={
@@ -345,7 +353,7 @@
 					"If a card bearing this",
 					"sigil is inside a {C:attention}circuit{}",
 					"and {C:attention}not scored{}, create",
-					"a {C:attention}random{} joker"
+					"a {C:attention}random{} Joker"
 				},
 			},
 			insc_trifurcated_powered_sigil ={
@@ -507,7 +515,7 @@
 				text = {
 					"When a card bearing this Sigil is",
 					"{C:attention}scored{}, gain {C:red}X#2#{} Mult and",
-					"{C:red}destroy{} a {C:attention}random{} joker",
+					"{C:red}destroy{} a {C:attention}random{} Joker",
 					"{C:inactive}(Currently {C:red}X#1#{} {C:inactive}Mult)"
 				},
 			},

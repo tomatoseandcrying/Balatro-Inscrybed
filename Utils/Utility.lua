@@ -390,30 +390,6 @@ function UIBox:get_UIE_by_func(fn_name)
   end
 end
 
-
-local set_spritesref = Card.set_sprites
-function Card:set_sprites(_center, _front)
-    set_spritesref(self, _center, _front);
-    if _center and _center.insc_num_layer then
-        if _center then
-            self.children.insc_floating_sprite_num = Sprite(self.T.x, self.T.y, self.T.w, self.T.h, G.ASSET_ATLAS[_center.atlas or _center.set], _center.insc_num_layer)
-            self.children.insc_floating_sprite_num.role.draw_major = self
-            self.children.insc_floating_sprite_num.states.hover.can = false
-            self.children.insc_floating_sprite_num.states.click.can = false
-        end
-        if self.config.center.discovered or self.bypass_discovery_center then
-            self.children.floating_sprite_thing = Sprite(self.T.x, self.T.y, self.T.w, self.T.h, G.ASSET_ATLAS['insc_tech_border'], {x = 0, y = 0})
-            self.children.floating_sprite_thing.states.hover = self.states.hover
-            self.children.floating_sprite_thing.states.click = self.states.click
-            self.children.floating_sprite_thing.states.drag = self.states.drag
-            self.children.floating_sprite_thing.states.collide.can = false
-            self.children.floating_sprite_thing:set_role({major = self, role_type = 'Glued', draw_major = self})
-        end
-        self.draw_bypass = {floating_sprite_thing = true}
-    end
-end
-SMODS.draw_ignore_keys.insc_floating_sprite_num = true
-
 -- Death card stuff
 Deathcard.create_UIBox_select_summon_materials = function(card)
 

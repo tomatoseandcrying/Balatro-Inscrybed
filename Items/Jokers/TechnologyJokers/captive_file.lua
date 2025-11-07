@@ -8,10 +8,10 @@ local captive_file = {
         y = 1,
         holo = true
     },
-    insc_num_layer = {
-        x = 2, 
-        y = 1,
-        holo = true,
+    inscrybed = {
+		soul_layers = {
+            insc_num_layer = {pos = {x = 2, y = 1}, holo = true}
+        },
     },
     config = { insc_sacrifice_sigils = {"hostage_file"}, extra = { } },
     loc_vars = function(self, info_queue, center)
@@ -21,7 +21,6 @@ local captive_file = {
     discovered = false,
     eternal_compat = false,
     rarity = 1,
-    order = 2,
     cost = 20,
     blueprint_compat = false,
     atlas = "po3_cards",

@@ -4,7 +4,7 @@ local bee = {
     key = "bee",
     insc_type = "Insect",
     pos = { x = 0, y = 1 },
-    config = { insc_sacrifice_sigils = {"airborne"}, extra = { perma_bonus = 0, perma_bonus_mod = 1 } },
+    config = { insc_sacrifice_sigils = {"airborne"}, extra = { perma_bonus = 5, perma_bonus_mod = 5 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.perma_bonus_mod, card.ability.extra.perma_bonus } }
     end,
@@ -27,7 +27,7 @@ local bee = {
                     end
                 end
             end
-            if context.other_card:is_suit('Spades') then
+            if context.other_card:get_id() == 12 then
                 context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.perma_bonus
                 return {
                     extra = { message = localize('k_upgrade_ex'), colour = G.C.CHIPS },
