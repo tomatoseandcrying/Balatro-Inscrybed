@@ -35,8 +35,9 @@ unused_discards = 0,'''
 position = 'after'
 match_indent = true 
 payload = '''
--- N/A
+did_deathcard = false,
 '''
+
 
 [[patches]] #Colors
 [patches.pattern]

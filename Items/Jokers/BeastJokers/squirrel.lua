@@ -3,6 +3,12 @@ local squirrel = {
     name = "Squirrel",
     key = "squirrel",
     insc_type = "None",
+    deathcard = {
+        effect = {},
+        condition = {},
+        rarity = {},
+        
+    },
     pos = { x = 2, y = 0 },
     config = { extra = { } },
     loc_vars = function(self, info_queue, center)

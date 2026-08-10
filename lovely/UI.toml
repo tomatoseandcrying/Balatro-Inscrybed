@@ -13,7 +13,7 @@ pattern = '''{n=G.UIT.R, config={id = 'from_game_over', align = "cm", minw = 5, 
             }}
           }},'''
 position = 'before'
-payload = '''{n=G.UIT.R, config={align = "cm", minw = 5, padding = 0.1, r = 0.1, hover = true, colour = G.C.ORANGE, button = "death_card_start", shadow = true, focus_args = {nav = 'wide', snap_to = true}}, nodes={
+payload = '''{n=G.UIT.R, config={align = "cm", minw = 5, padding = 0.1, r = 0.1, hover = true, colour = G.C.ORANGE, one_press = true, button = "death_card_start",  func = 'can_deathcard',  shadow = true, focus_args = {nav = 'wide', snap_to = true}}, nodes={
             {n=G.UIT.R, config={align = "cm", padding = 0, no_fill = true, maxw = 4.8}, nodes={
               {n=G.UIT.T, config={text = localize('b_create_death_card'), scale = 0.5, colour = G.C.UI.TEXT_LIGHT}}
             }}
@@ -557,3 +557,63 @@ if G.jokers ~= nil and G.insc_campfire_joker ~= nil and self ~= nil then
     end
 end
 '''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = '''if card.area and card.area.config.type == 'joker' then
+    sell = {n=G.UIT.C, config={align = "cr"}, nodes={
+      {n=G.UIT.C, config={ref_table = card, align = "cr",padding = 0.1, r=0.08, minw = 1.25, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'sell_card', func = 'can_sell_card'}, nodes={
+        {n=G.UIT.B, config = {w=0.1,h=0.6}},
+        {n=G.UIT.C, config={align = "tm"}, nodes={
+          {n=G.UIT.R, config={align = "cm", maxw = 1.25}, nodes={
+            {n=G.UIT.T, config={text = localize('b_sell'),colour = G.C.UI.TEXT_LIGHT, scale = 0.4, shadow = true}}
+          }},
+          {n=G.UIT.R, config={align = "cm"}, nodes={
+            {n=G.UIT.T, config={text = localize('$'),colour = G.C.WHITE, scale = 0.4, shadow = true}},
+            {n=G.UIT.T, config={ref_table = card, ref_value = 'sell_cost_label',colour = G.C.WHITE, scale = 0.55, shadow = true}}
+          }}
+        }}
+      }},
+    }}
+  end'''
+position = 'after'
+payload = '''
+if card.area == BalatroInscrybed.chose_card_one then
+  sell = nil
+  local select_deathcard_text = localize('insc_deathcard_choose')
+  return {n=G.UIT.ROOT, config = {padding = 0, colour = G.C.CLEAR}, nodes={
+            {n=G.UIT.R, config={ref_table = card, r = 0.08, padding = 0.1, align = "bm", minw = 0.5*card.T.w - 0.15, maxw = 0.9*card.T.w - 0.15, minh = 0.3*card.T.h, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = false, button = 'deathcard_select', func = 'can_select_deathcard'}, nodes={
+            {n=G.UIT.T, config={text = select_deathcard_text, colour = G.C.UI.TEXT_LIGHT, scale = 0.45, shadow = true}}
+            }},
+        }}
+end'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "if _c.set == 'Other' then"
+position = "before"
+match_indent = true
+payload = '''
+
+if card and card.area and card.area == BalatroInscrybed.chose_card_one then
+    info_queue[#info_queue+1] = {key = 'insc_deathcard_condition', set = 'Other', vars = {card.config.center.deathcard.condition}}
+    info_queue[#info_queue+1] = {key = 'insc_deathcard_effect', set = 'Other', vars = {card.config.center.deathcard.effect}}
+end
+'''
+
+
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+pattern = '''
+G.FUNCS.start_run = function(e, args)
+'''
+position = 'after'
+payload = '''
+   G.GAME.did_deathcard = false 
+'''
+match_indent = true
