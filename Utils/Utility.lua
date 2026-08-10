@@ -397,12 +397,92 @@ end
 
 -- Death card stuff
 
-
+local PO3 = nil
 
 local deathcard_choosing = "condition"
+BalatroInscrybed.PO3 = nil
+function BalatroInscrybed.get_name()
+  for o, p in pairs(G.P_CENTER_POOLS['Joker']) do
+    if p.key == "j_insc_deathcard" then
+      return p.name
+    end
+  end
+    
+end
 
+local deathcard_ = G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard 
+	for o, p in ipairs(G.P_CENTER_POOLS['Joker']) do
+        print("started") 
+    if p.key == "j_insc_deathcard" then
+    print("found") 
+      if deathcard_.condition ~= nil then
+        p.deathcard_stats.condition = deathcard_.condition
+        print("done") 
+      end
+      if deathcard_.effect ~= nil then
+        p.deathcard_stats.effect = deathcard_.effect
+        print("done")  
+      end
+      if deathcard_.rarity ~= nil then
+        p.rarity = deathcard_.rarity
+        print("done") 
+      end
+      if deathcard_.name ~= nil then
+        p.name = deathcard_.name
+        print("done") 
+      end
+    end
+  end
 
+    
+function BalatroInscrybed.save_to_joker()
+  if G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard then
+  local deathcard_ = G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard
+    for o, p in ipairs(G.P_CENTER_POOLS['Joker']) do
+      if p.key == "j_insc_deathcard" then
+        if deathcard_.condition ~= nil then
+          p.deathcard_stats.condition = deathcard_.condition
+        end
+        if deathcard_.effect ~= nil then
+          p.deathcard_stats.effect = deathcard_.effect 
+        end
+        if deathcard_.rarity ~= nil then
+          p.rarity = deathcard_.rarity
+        end
+        if deathcard_.name ~= nil then
+          p.name = deathcard_.name
+        end
+      end
+    end
+  else
+    local deathcard_ = {}
+  end
+    
 
+    
+end
+
+local inject_hook = SMODS.injectItems
+function SMODS.injectItems(...)
+   inject_hook()
+   BalatroInscrybed.save_to_joker()
+end
+
+function BalatroInscrybed.save_deathcard_to_profile()
+local deathcard = G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard 
+	for o, p in ipairs(G.P_CENTER_POOLS['Joker']) do
+    if p.key == "j_insc_deathcard" then
+      deathcard.condition = p.deathcard_stats.condition
+      deathcard.effect = p.deathcard_stats.effect
+      deathcard.rarity = p.rarity
+      deathcard.name = p.name
+    end
+  end
+  if not G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard then
+		G.PROFILES[G.SETTINGS.profile].BalatroInscrybed_deathcard = deathcard
+	end
+    
+end
 
 function deathcard_condtion(context, condition)
   if condition == nil then
@@ -456,6 +536,18 @@ function deathcard_effect(effect)
       if i == "xchips" then
         return { xchips = v }
       end
+      if i == "multperjokerslot" then
+        local x_mult = (G.jokers.config.card_limit - #G.jokers.cards)
+          for i = 1, #G.jokers.cards do
+              if G.jokers.cards[i].ability.name == 'Joker Stencil' then x_mult = x_mult + 1 end
+              if G.jokers.cards[i].ability.name == 'insc-deathcard' then x_mult = x_mult + 1 end
+          end
+        if (G.jokers.config.card_limit - #G.jokers.cards) > 0 then
+            return {
+                xmult = x_mult  
+            }
+        end
+      end
     end
     return {}
   end
@@ -469,6 +561,22 @@ G.FUNCS.deathcard_select = function(e)
     deathcard_choosing = "effect"
     BalatroInscrybed.death_card_area.cards[1].config.center.deathcard_stats.condition = card.config.center.deathcard.condition
     G.FUNCS.draw_from_card_area_to_card_area(BalatroInscrybed.chose_card_one, BalatroInscrybed.joker_holding)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0,
+        blocking = false,
+        func = (function()
+            if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot') then 
+                local quip, extra = SMODS.quip("deathcard")
+                extra.x = 0
+                extra.y = 5
+                PO3.ui_object_updated = true
+                PO3:add_speech_bubble("insc_deathcard3" , nil, {quip = true}, extra)
+                PO3:say_stuff((extra and extra.times) or 5, false, "insc_deathcard3")
+                end
+            return true
+        end)
+    }))
     G.E_MANAGER:add_event(Event({
       trigger = 'before',
       delay = 0.0,
@@ -484,6 +592,22 @@ G.FUNCS.deathcard_select = function(e)
     deathcard_choosing = "rarity"
     G.FUNCS.draw_from_card_area_to_card_area(BalatroInscrybed.chose_card_one, BalatroInscrybed.joker_holding)
     BalatroInscrybed.death_card_area.cards[1].config.center.deathcard_stats.effect = card.config.center.deathcard.effect
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0,
+        blocking = false,
+        func = (function()
+            if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot') then 
+                local quip, extra = SMODS.quip("deathcard")
+                extra.x = 0
+                extra.y = 5
+                PO3.ui_object_updated = true
+                PO3:add_speech_bubble("insc_deathcard4" , nil, {quip = true}, extra)
+                PO3:say_stuff((extra and extra.times) or 5, false, "insc_deathcard4")
+                end
+            return true
+        end)
+    }))
     G.E_MANAGER:add_event(Event({
       trigger = 'before',
       delay = 0.0,
@@ -508,12 +632,59 @@ G.FUNCS.deathcard_select = function(e)
     for i = #BalatroInscrybed.joker_holding, 1, -1 do
         local card = BalatroInscrybed.joker_holding.cards[i]
         
-        if card.config.center.deathcard == nil then
+        if card.config.center.deathcard then
             table.insert(cards_to_delete, card)
         end
     end
     SMODS.destroy_cards(cards_to_delete)
-    G.FUNCS.DT_lose_game()
+    G.OVERLAY_MENU:remove()
+    G.OVERLAY_MENU = nil
+    G.SETTINGS.paused = false
+    G.FUNCS.overlay_menu({
+            definition = Deathcard.create_UIBox_select_summon_materials_2(card)
+        })
+    SMODS.add_card{
+        key = "j_insc_deathcard",
+        area = BalatroInscrybed.death_card_area
+    }
+    
+    table.insert(G.OVERLAY_MENU.definition.nodes[3].nodes, create_text_input({
+      w = 4, max_length = 16, id = "deathcard_text_input", prompt_text = localize('k_enter_name'),
+      ref_table = BalatroInscrybed.death_card_area.cards[1].config.center, ref_value = 'name',extended_corpus = true, keyboard_offset = 1,
+      callback = function() 
+        G:save_settings()
+        G.FILE_HANDLER.force = true
+      end
+    }))
+    -- local deathcard_element_ui = G.OVERLAY_MENU:get_UIE_by_ID('deathcard_text_input')
+    -- deathcard_element_ui.children[1].UIBox:recalculate()
+    
+
+
+
+      PO3 = nil
+    G.E_MANAGER:add_event(Event({
+      trigger = 'after',
+      delay = 2.5,
+      blocking = false,
+      func = (function()
+          if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot') then 
+              local quip, extra = SMODS.quip("deathcard")
+              extra.x = 0
+              extra.y = 5
+              BalatroInscrybed.PO3 = Card_Character(extra)
+              local spot = G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot')
+              spot.config.object:remove()
+              spot.config.object = BalatroInscrybed.PO3
+              BalatroInscrybed.PO3.ui_object_updated = true
+              local extra = {x = 0, y = 5}
+              BalatroInscrybed.PO3:add_speech_bubble("insc_deathcard5", nil, {quip = true}, extra)
+              BalatroInscrybed.PO3:say_stuff((extra and extra.times) or 5, false, "insc_deathcard5")
+              end
+          return true
+      end)
+      }))
+      
   end
 
 end
@@ -537,6 +708,7 @@ G.FUNCS.can_deathcard = function(e)
     e.config.button = nil
   end
 end
+
 
 
 
@@ -582,23 +754,86 @@ Deathcard.create_UIBox_select_summon_materials = function(card)
         },}
 end
 
-local PO3 = nil
+Deathcard.create_UIBox_select_summon_materials_2 = function(card)
+
+    local amount = 3
+    BalatroInscrybed.death_card_area = CardArea(0, 10, G.CARD_W, G.CARD_H*3.4, 
+    {card_limit = 1, type = 'title', highlight_limit = 1})
+    local deathcard_center
+    for o, p in pairs(G.P_CENTER_POOLS['Joker']) do
+      if p.key == "j_insc_deathcard" then
+        deathcard_center = p
+      end
+	  end
+    BalatroInscrybed.joker_holding = CardArea(0, 0, 7*G.CARD_W, G.CARD_H*0.95, 
+    {card_limit = 50, type = 'joker', highlight_limit = 1})
+
+
+    local ui = {
+        n = G.UIT.ROOT, config = {align = "tm", id = "deathcard_ui", minw = G.ROOM.T.w, minh = G.ROOM.T.h, padding = 0, r = 0.1, colour = HEX("3F4A61")}, nodes = {
+            {n=G.UIT.R, config={align = "tm", minh = G.CARD_H },nodes={
+            }},
+            {n=G.UIT.R, config={align = "tm"},nodes={
+                {n=G.UIT.C, config={align = "tm", padding    =-.5},nodes={
+                    {n=G.UIT.O, config = {object = Sprite(0, 0, 12, 12, G.ASSET_ATLAS['insc_dcc'], {x=0,y=0}), hover = true, can_collide = false}},
+                }},
+                {n=G.UIT.C, config={align = "tm", padding =-.5},nodes={
+                    {n=G.UIT.O, config = {object = BalatroInscrybed.death_card_area, hover = true, can_collide = false}},
+                }},     
+                {n=G.UIT.C, config={align = "tm", padding =-.5},nodes={ 
+                    {n=G.UIT.O, config = {object = Sprite(0, 0, 12, 12, G.ASSET_ATLAS['insc_dcc'], {x=1,y=0}), hover = true, can_collide = false}}, 
+                }},
+                {n=G.UIT.C, config={align = "cl", padding = -5, },nodes={
+                  {n=G.UIT.O, config = {id = "deathcard_tutorial_spot", object = Moveable(0,0,G.CARD_W*1.1, G.CARD_H*1.1), colour = HEX("FFE600"), hover = true, can_collide = true}},   
+                }},
+                               
+            }},
+            {n=G.UIT.R, config={align = "tm", id = "deathcard_element_spot"},nodes={
+              {n=G.UIT.R, config={align = "tm"},nodes={
+                {n=G.UIT.C, config={align = "tm", minh = G.CARD_H },nodes={
+                  {n=G.UIT.R, config={align = "tm",},nodes={
+                    create_text_input({
+                      w = 4, align = "tm", max_length = 999, id = "deathcard_text_input", prompt_text = localize('k_enter_name'),
+                      ref_table = deathcard_center, padding = 0.5, ref_value = 'name',extended_corpus = true, keyboard_offset = 1,
+                      callback = function() 
+                        G:save_settings()
+                        G.FILE_HANDLER.force = true
+                      end}),
+                  }},
+                  {n=G.UIT.R, config={align = "cm", minw = 5, padding = 0.1, r = 0.1, hover = true, colour = G.C.ORANGE, button = "apply_name" , shadow = true, focus_args = {nav = 'wide', snap_to = true}}, nodes={
+                    {n=G.UIT.R, config={align = "cm", padding = 0, no_fill = true, maxw = 4.8}, nodes={
+                      {n=G.UIT.T, config={text = "Next", scale = 0.5, colour = G.C.UI.TEXT_LIGHT}}
+                    }}
+                  }},
+                }},
+              }},
+              
+              {n=G.UIT.R, config={align = "bm", minh = G.CARD_H },nodes={
+                  {n=G.UIT.O, config = {object = BalatroInscrybed.joker_holding, hover = true, can_collide = false}},
+              }},
+            }},
+
+        },}
+    return ui 
+end
+
+
 G.E_MANAGER:add_event(Event({
     trigger = 'after',
     delay = 2.5,
     blocking = false,
     func = (function()
         if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot') then 
-            local quip, extra = SMODS.quip("loss")
-            extra.x = -5
+            local quip, extra = SMODS.quip("deathcard")
+            extra.x = 0
             extra.y = 5
-            PO3 = Card_Character(extra)
+            BalatroInscrybed.PO3 = Card_Character(extra)
             local spot = G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot')
             spot.config.object:remove()
-            spot.config.object = PO3
-            PO3.ui_object_updated = true
-            PO3:add_speech_bubble(quip, nil, {quip = true}, extra)
-            PO3:say_stuff((extra and extra.times) or 5, false, quip)
+            spot.config.object = BalatroInscrybed.PO3
+            BalatroInscrybed.PO3.ui_object_updated = true
+            BalatroInscrybed.PO3:add_speech_bubble(quip, nil, {quip = true}, extra)
+            BalatroInscrybed.PO3:say_stuff((extra and extra.times) or 5, false, quip)
             end
         return true
     end)
@@ -620,7 +855,10 @@ SMODS.JimboQuip{
       if type == "deathcard" then return true, {override_base_checks = true} end
   end
 }
-
+G.FUNCS.apply_name = function(e)
+  BalatroInscrybed.save_deathcard_to_profile()
+  G.FUNCS.DT_lose_game()
+end
 G.FUNCS.death_card_start = function(e)
     G.GAME.did_deathcard = true
     G.OVERLAY_MENU:remove()
@@ -657,7 +895,7 @@ G.FUNCS.death_card_start = function(e)
     end)}))
 
 
-    local PO3 = nil
+
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 2.5,
@@ -678,19 +916,35 @@ G.FUNCS.death_card_start = function(e)
             return true
         end)
     }))
-    deathcard_choosing = "condition"
-
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 5,
         blocking = false,
         func = (function()
-              PO3:remove_speech_bubble()
-              local quip, extra = SMODS.quip("deathcard")
-              PO3:add_speech_bubble(quip, nil, {quip = true}, extra)
-              PO3:say_stuff((extra and extra.times) or 5, false, "deathcard time MF")
+            if G.OVERLAY_MENU and G.OVERLAY_MENU:get_UIE_by_ID('deathcard_tutorial_spot') then 
+                local quip, extra = SMODS.quip("deathcard")
+                extra.x = 0
+                extra.y = 5
+                PO3.ui_object_updated = true
+                PO3:add_speech_bubble("insc_deathcard2" , nil, {quip = true}, extra)
+                PO3:say_stuff((extra and extra.times) or 5, false, "insc_deathcard2")
+                end
             return true
         end)
     }))
+    deathcard_choosing = "condition"
+
+    -- G.E_MANAGER:add_event(Event({
+    --     trigger = 'after',
+    --     delay = 5,
+    --     blocking = false,
+    --     func = (function()
+    --           PO3:remove_speech_bubble()
+    --           local quip, extra = SMODS.quip("deathcard")
+    --           PO3:add_speech_bubble(quip, nil, {quip = true}, extra)
+    --           PO3:say_stuff((extra and extra.times) or 5, false, "deathcard time MF")
+    --         return true
+    --     end)
+    -- }))
 end
 

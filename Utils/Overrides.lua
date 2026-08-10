@@ -157,6 +157,14 @@ SMODS.Joker:take_ownership("half", {
       },
   },
 }, true)
+SMODS.Joker:take_ownership("stencil", {
+  deathcard = {
+      effect = {
+       multperjokerslot = 1 ,
+      },
+      condition = "joker_main",
+  },
+}, true)
 SMODS.Joker:take_ownership("tribe", {
   deathcard = {
       effect = {
@@ -164,6 +172,28 @@ SMODS.Joker:take_ownership("tribe", {
       },
       condition = {
         hand_contains = "Flush"
+      },
+  },
+}, true)
+
+SMODS.Joker:take_ownership("order", {
+  deathcard = {
+      effect = {
+        xmult = 3 ,
+      },
+      condition = {
+        hand_contains = "Straight"
+      },
+  },
+}, true)
+
+SMODS.Joker:take_ownership("family", {
+  deathcard = {
+      effect = {
+        xmult = 4,
+      },
+      condition = {
+        hand_contains = "Four of a Kind"
       },
   },
 }, true)

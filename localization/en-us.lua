@@ -130,6 +130,15 @@
 					'its rank as {C:mult}Mult'
                 }
             },
+			j_insc_deathcard = {
+                name = "#1#",
+                text = {
+					"All cards with a lower rank",
+					'The {C:attention}highest{} rank scored',
+					'{C:diamonds}diamond{} card gives {C:attention}double',
+					'its rank as {C:mult}Mult'
+                }
+            },
 		},
 		Back = {
             b_insc_beast_deck = {
@@ -672,6 +681,22 @@
  			insc_deathcard1 = {
 				"Its Death Card time",
 				"Motherfucker!"
+			},
+			insc_deathcard2 = {
+				"First choose a ",
+				"Condition"
+			},
+			insc_deathcard3 = {
+				"Next choose an",
+				"Effect!"
+			},
+			insc_deathcard4 = {
+				"Lastly choose a",
+				"Rarity"
+			},
+			insc_deathcard5 = {
+				"Now its time to choose",
+				"a Name!"
 			},
 		},
   	},

@@ -209,6 +209,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.shared_insc_scribes["Magnificus"] = Sprite(0,0,G.CARD_W,G.CARD_H,G.ASSET_ATLAS["insc_scribe_backs"], {x=1,y=1})
 	end
 end
+BalatroInscrybed.save_to_joker()
 
 --if G and G.GAME and G.GAME.modifiers and G.GAME.modifiers.beast
     

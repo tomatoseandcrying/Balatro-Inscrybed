@@ -22,7 +22,7 @@ local deathcard = {
     },
     config = { insc_sacrifice_sigils = {"trinket"}, extra = { } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { } }
+        return { vars = {BalatroInscrybed.get_name()} }
     end,
     rarity = 1,
     cost = 20,
@@ -34,4 +34,5 @@ local deathcard = {
         end
     end
 }
+
 return {name = {"OtherJoker"}, items = {deathcard}}
