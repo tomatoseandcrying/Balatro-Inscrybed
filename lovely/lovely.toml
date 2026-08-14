@@ -412,7 +412,7 @@ G.GAME.insc_extra_draw = 0
 '''
 match_indent = true
 
-#never destory
+#never destroy
 [[patches]]
 [patches.pattern]
 target = "card.lua"
