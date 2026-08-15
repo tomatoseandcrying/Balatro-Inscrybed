@@ -1,58 +1,66 @@
- return{
-	descriptions={
+return {
+	descriptions = {
 		Joker = {
 			-- Other Jokers
 			j_insc_lesh_statue = {
-                name = "{C:insc_leshy}Leshy",
-                text = {
+				name = "{C:insc_leshy}Leshy",
+				text = {
 					"The {C:red,E:1}Scrybe{} of {C:beasts,E:1}Beasts"
-                }
-            },
+				}
+			},
 			j_insc_po3_statue = {
-                name = "{C:insc_po3}PO3",
-                text = {
+				name = "{C:insc_po3}PO3",
+				text = {
 					"The {C:red,E:1}Scrybe{} of {C:tech,E:1}Technology"
-                }
-            },
+				}
+			},
 			j_insc_grim_statue = {
-                name = "{C:insc_grimora}Grimora",
-                text = {
+				name = "{C:insc_grimora}Grimora",
+				text = {
 					"The {C:red,E:1}Scrybe{} of the {C:dead,E:1}Dead"
-                }
-            },
+				}
+			},
 			j_insc_wiz_statue = {
-                name = "{C:insc_magnificus}Magnificus",
-                text = {
+				name = "{C:insc_magnificus}Magnificus",
+				text = {
 					"The {C:red,E:1}Scrybe{} of {C:magicks,E:1}Magicks"
-                }
-            },
+				}
+			},
 			-- Technology Jokers
 			j_insc_captive_file = {
-                name = "Captive File",
-                text = {
+				name = "Captive File",
+				text = {
 					"When death is prevented {C:red}destroy",
 					"a {C:attention}random{} Joker including itself",
 					"{C:inactive,s:0.8}(Prevents death)"
-                }
-            },
+				}
+			},
 			-- Beast Jokers
 			j_insc_squirrel = {
-                name = "Squirrel",
-                text = {
+				name = "Squirrel",
+				text = {
 					"Does nothing but will",
 					"{C:attention}always{} be free"
-                }
-            },
+				}
+			},
 			j_insc_aquasquirrel = {
-                name = "Aquasquirrel",
-                text = {
+				name = "Aquasquirrel",
+				text = {
 					"Does nothing but is",
 					"{C:attention}free{} in the shop"
-                }
-            },
+				}
+			},
+			j_insc_amoeba = {
+				name = "Amoeba",
+				text = {
+					"If the {C:attention}first hand{} of the round has",
+					"only {C:attention}#1#{} card, grant it a random {V:1,X:black}sigil{} if",
+					"it doesn't already have one"
+				}
+			},
 			j_insc_bee = {
-                name = "Bee",
-                text = {
+				name = "Bee",
+				text = {
 					{
 						"Played {C:attention}Queen{} cards gain",
 						"{C:chips}+#2#{} Chips permanently",
@@ -61,41 +69,41 @@
 						"{C:chips}Chip{} amount increases by {C:attention}#1#",
 						"for {C:attention}every{} other Bee Joker",
 					}
-                }
-            },
+				}
+			},
 			j_insc_beehive = {
-                name = "Beehive",
-                text = {
+				name = "Beehive",
+				text = {
 					"Upon {C:money}selling{} this Joker",
 					"gain {C:attention}#1#{} copies of the Bee"
-                }
-            },
+				}
+			},
 			j_insc_bat = {
-                name = "Bat",
-                text = {
+				name = "Bat",
+				text = {
 					"Discarded {C:hearts}Heart{} cards",
 					"become {C:spades}Spades"
-                }
-            },
+				}
+			},
 			j_insc_black_goat = {
-                name = "Black Goat",
-                text = {
+				name = "Black Goat",
+				text = {
 					"When this Joker is {C:red}destroyed",
 					"or {C:money}sold{} it is done so {C:attention}three",
 					"times"
-                }
-            },
+				}
+			},
 			j_insc_alpha = {
-                name = "Alpha",
-                text = {
+				name = "Alpha",
+				text = {
 					"All cards with a {C:attention}lower{} rank",
 					"than the {C:attention}first{} scored card",
 					"grant {C:mult}+#1#{} Mult"
-                }
-            },
+				}
+			},
 			j_insc_adder = {
-                name = "Adder",
-                text = {
+				name = "Adder",
+				text = {
 					{
 						"Retriggers an {C:attention}additional",
 						"time for each Joker",
@@ -105,85 +113,85 @@
 					{
 						"{X:mult,C:white}X#1#{} Mult"
 					}
-                }
-            },
+				}
+			},
 			j_insc_beaver = {
-                name = "Beaver",
-                text = {
+				name = "Beaver",
+				text = {
 					'{C:attention}Stone Cards{} are considered',
 					'{C:attention}Wild Cards{} and all suits'
-                }
-            },
+				}
+			},
 			j_insc_bloodhound = {
-                name = "Bloodhound",
-                text = {
+				name = "Bloodhound",
+				text = {
 					'{C:attention}Level up{} played hand if all',
 					'{C:attention}scoring{} cards are {C:hearts}hearts'
-                }
-            },
+				}
+			},
 			j_insc_bullfrog = {
-                name = "Bullfrog",
-                text = {
+				name = "Bullfrog",
+				text = {
 					"All cards with a lower rank",
 					'The {C:attention}highest{} rank scored',
 					'{C:diamonds}diamond{} card gives {C:attention}double',
 					'its rank as {C:mult}Mult'
-                }
-            },
+				}
+			},
 			j_insc_deathcard = {
-                name = "#1#",
-                text = {
+				name = "#1#",
+				text = {
 					"All cards with a lower rank",
 					'The {C:attention}highest{} rank scored',
 					'{C:diamonds}diamond{} card gives {C:attention}double',
 					'its rank as {C:mult}Mult'
-                }
-            },
+				}
+			},
 		},
 		Back = {
-            b_insc_beast_deck = {
-                name = "Beast Deck",
-                text = {
-                    "The {C:attention}first{} scored {C:attention}wild card{}",
+			b_insc_beast_deck = {
+				name = "Beast Deck",
+				text = {
+					"The {C:attention}first{} scored {C:attention}wild card{}",
 					"of each round",
-					"permanently gains {C:mult}+10{} Mult", 
+					"permanently gains {C:mult}+10{} Mult",
 					"then creates a copy",
 					"Start with {C:attention}2{} {C:tarot,T:c_lovers}The Lovers{}",
-                }
-            },
+				}
+			},
 		},
 		Spectral = {
-			
+
 		},
 		insc_Event = {
-			ev_insc_sacrifice ={
-				name="Sacrifice",
-				text={
+			ev_insc_sacrifice = {
+				name = "Sacrifice",
+				text = {
 					"{C:red}Sacrifice{} a Joker",
 					"for it's sigil",
 				},
 			},
-			ev_insc_campfire ={
-				name="Campfire",
-				text={
+			ev_insc_campfire = {
+				name = "Campfire",
+				text = {
 					"{C:attention}Increase{} a Jokers",
 					"stats",
 				},
 			},
 		},
-		Other={
+		Other = {
 			-- Sigils
-		  	insc_fecundity_sigil ={
-				name="Fecundity",
-				text={
+			insc_fecundity_sigil = {
+				name = "Fecundity",
+				text = {
 					"When a card bearing this Sigil is {C:attention}scored{}",
 					"{C:green}#1# in #2#{} chance",
 					"to create a {C:attention}copy{}",
 				},
 			},
-			insc_bees_within_sigil ={
-				name="Bees Within",
-				text={
+			insc_bees_within_sigil = {
+				name = "Bees Within",
+				text = {
 					"When a card bearing",
 					"this sigil is {C:red}discarded{}",
 					"create a {C:attention}Bee{}, {C:green}#1# in #2#{}",
@@ -192,23 +200,23 @@
 					"{C:inactive}(Must have room)",
 				},
 			},
-		  	insc_gifter_sigil ={
+			insc_gifter_sigil = {
 				name = "Gift Bearer",
 				text = {
-					"When a card", 
+					"When a card",
 					"bearing this Sigil is {C:attention}Discarded{}",
 					"Create a random Joker",
-					},
+				},
 			},
-			insc_overclocked_sigil ={
+			insc_overclocked_sigil = {
 				name = "Overclocked",
 				text = {
-					"{X:mult,C:white} X#1# {} Mult.", 
+					"{X:mult,C:white} X#1# {} Mult.",
 					"If a card bearing this sigil is played and",
 					"doesn't win, {C:green}#2# in #3#{} chance it breaks.",
 				},
 			},
-			insc_parasite_sigil ={
+			insc_parasite_sigil = {
 				name = "Brood Parasite",
 				text = {
 					"When a card bearing",
@@ -217,35 +225,35 @@
 					"{C:inactive}(Must have room)",
 				},
 			},
-			insc_double_sigil ={
+			insc_double_sigil = {
 				name = "Double Strike",
 				text = {
 					"{C:attention}Retriggers{} this card",
 					"once",
 				},
 			},
-			insc_airborne_sigil ={
+			insc_airborne_sigil = {
 				name = "Airborne",
 				text = {
 					"This card {C:attention}always{}",
 					"scores",
 				},
 			},
-			insc_waterborne_sigil ={
+			insc_waterborne_sigil = {
 				name = "Waterborne",
 				text = {
 					"This card {C:attention}cannot{}",
 					"be {C:red}debuffed"
 				},
 			},
-			insc_stone_sigil ={
+			insc_stone_sigil = {
 				name = "Made of Stone",
 				text = {
 					"This card is {C:attention}considered{}",
 					"a {C:dark_edition}Stone Card"
 				},
 			},
-			insc_bifurcated_sigil ={
+			insc_bifurcated_sigil = {
 				name = "Bifurcated Strike",
 				text = {
 					"This card is counted {C:attention}two times",
@@ -253,7 +261,7 @@
 					"{C:inactive}(High Card -> Pair)"
 				},
 			},
-			insc_trifurcated_sigil ={
+			insc_trifurcated_sigil = {
 				name = "Trifurcated Strike",
 				text = {
 					"This card is counted {C:attention}three times",
@@ -261,7 +269,7 @@
 					"{C:inactive}(High Card -> Three of a Kind)"
 				},
 			},
-			insc_lives_sigil ={
+			insc_lives_sigil = {
 				name = "Many Lives",
 				text = {
 					"This card will {C:attention}come back",
@@ -269,7 +277,7 @@
 					"or {C:red}destroyed",
 				},
 			},
-			insc_unkillable_sigil ={
+			insc_unkillable_sigil = {
 				name = "Unkillable",
 				text = {
 					"When a card bearing this sigil",
@@ -278,21 +286,21 @@
 					"without the sigil"
 				},
 			},
-			insc_sacrifice_sigil ={
+			insc_sacrifice_sigil = {
 				name = "Worthy Sacrifice",
 				text = {
 					"This card draws {C:attention}#1#{} cards",
 					"instead of {C:attention}1{} when {C:red}discarded",
 				},
 			},
-			insc_amorphous_sigil ={
+			insc_amorphous_sigil = {
 				name = "Amorphous",
 				text = {
 					"When this card is {C:attention}played{} it",
 					"gains a {C:attention}random{} {C:dark_edition}enhancement",
 				},
 			},
-			insc_tidal_sigil ={
+			insc_tidal_sigil = {
 				name = "Tidal Lock",
 				text = {
 					"If a card bearing this sigil",
@@ -300,7 +308,7 @@
 					"round, create a {C:planet}Meteor tag"
 				},
 			},
-			insc_fledgling_sigil ={
+			insc_fledgling_sigil = {
 				name = "Fledgling",
 				text = {
 					"This card gains {C:mult}+#2#{} Mult",
@@ -308,7 +316,7 @@
 					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 				},
 			},
-			insc_atkconduit_sigil ={
+			insc_atkconduit_sigil = {
 				name = "Attack Conduit",
 				text = {
 					"If a card bearing this sigil",
@@ -316,7 +324,7 @@
 					"cards {C:attention}inside{} of it give {C:mult}+#1#{} mult"
 				},
 			},
-			insc_gemconduit_sigil ={
+			insc_gemconduit_sigil = {
 				name = "Gem Spawn Conduit",
 				text = {
 					"If a card bearing this sigil",
@@ -324,7 +332,7 @@
 					"cards in the {C:attention}circuit{} give {C:mult}X#1#{} mult"
 				},
 			},
-			insc_buff_powered_sigil ={
+			insc_buff_powered_sigil = {
 				name = "Buff When Powered",
 				text = {
 					"If a card bearing this",
@@ -332,14 +340,14 @@
 					"it gives {C:mult}X#1#{} mult",
 				},
 			},
-			insc_digger_sigil ={
+			insc_digger_sigil = {
 				name = "Bone Digger",
 				text = {
 					"When this card is {C:attention}held in",
 					"{C:attention}hand{} draw an {C:attention}additional{} card"
 				},
 			},
-			insc_bellist_sigil ={
+			insc_bellist_sigil = {
 				name = "Bellist",
 				text = {
 					"When a card bearing this",
@@ -348,7 +356,7 @@
 					"of the cards {C:attention}next{} to it"
 				},
 			},
-			insc_tail_sigil ={
+			insc_tail_sigil = {
 				name = "Loose Tail",
 				text = {
 					"When this card would be {C:red}destroyed",
@@ -356,7 +364,7 @@
 					"with {C:attention}half the rank{} of the original"
 				},
 			},
-			insc_gift_powered_sigil ={
+			insc_gift_powered_sigil = {
 				name = "Gift When Powered",
 				text = {
 					"If a card bearing this",
@@ -365,7 +373,7 @@
 					"a {C:attention}random{} Joker"
 				},
 			},
-			insc_trifurcated_powered_sigil ={
+			insc_trifurcated_powered_sigil = {
 				name = "Trifurcated When Powered",
 				text = {
 					"If a card bearing this",
@@ -374,42 +382,42 @@
 					"calculating {C:attention}Poker Hands",
 				},
 			},
-			insc_trinket_sigil ={
+			insc_trinket_sigil = {
 				name = "Trinket Bearer",
 				text = {
 					"When this card is {C:attention}played{} gain",
 					" a {C:attention}random{} consumable",
 				},
 			},
-			insc_repulsive_sigil ={
+			insc_repulsive_sigil = {
 				name = "Repulsive",
 				text = {
 					"When this card is {C:attention}held in",
 					"{C:attention}hand{} the boss blind is {C:red}disabled"
 				},
 			},
-			insc_shield_latch_sigil ={
+			insc_shield_latch_sigil = {
 				name = "Shield Latch",
 				text = {
 					"When this card is {C:red}destroyed",
 					"generate {C:attention}The Chariot{} consumable"
 				},
 			},
-			insc_bomb_latch_sigil ={
+			insc_bomb_latch_sigil = {
 				name = "Bomb Latch",
 				text = {
 					"When this card is {C:red}destroyed",
 					"generate {C:attention}The Hanged Man{} consumable"
 				},
 			},
-			insc_brittle_latch_sigil ={
+			insc_brittle_latch_sigil = {
 				name = "Brittle Latch",
 				text = {
 					"When this card is {C:red}destroyed",
 					"generate {C:attention}Justice{} consumable"
 				},
 			},
-			insc_mighty_leap_sigil ={
+			insc_mighty_leap_sigil = {
 				name = "Mighty Leap",
 				text = {
 					"When {C:red}discarded{} in a boss blind",
@@ -417,7 +425,7 @@
 					"{C:red}destroy{} this card"
 				},
 			},
-			insc_frozen_sigil ={
+			insc_frozen_sigil = {
 				name = "Frozen Away",
 				text = {
 					"When this card is {C:red}destroyed",
@@ -425,14 +433,14 @@
 					"and {C:mult}+#2#{} Mult",
 				},
 			},
-			insc_swapper_sigil ={
+			insc_swapper_sigil = {
 				name = "Swapper",
 				text = {
 					"Swaps any {C:chips}Chips{}",
 					"and {C:mult}Mult{} bonuses",
 				},
 			},
-			insc_ant_sigil ={
+			insc_ant_sigil = {
 				name = "Ant",
 				text = {
 					"{C:green}#2# in #3#{} chance to {C:attention}retrigger{}",
@@ -440,7 +448,7 @@
 					"{C:inactive}(Currently {C:green}#1#{}{C:inactive} Times)"
 				},
 			},
-			insc_ant_spawner_sigil ={
+			insc_ant_spawner_sigil = {
 				name = "Ant Spawner",
 				text = {
 					"{C:green}#1# in #2#{} chance for any card next",
@@ -448,14 +456,14 @@
 					"{C:green}gain{} the {C:dark_edition}Ant sigil{} when {C:attention}played"
 				},
 			},
-			insc_clinger_sigil ={
+			insc_clinger_sigil = {
 				name = "Clinger",
 				text = {
 					"A card bearing this sigil",
 					"is {C:attention}always{} selected",
 				},
 			},
-			insc_detonator_sigil ={
+			insc_detonator_sigil = {
 				name = "Detonator",
 				text = {
 					"When a card bearing this sigil",
@@ -464,7 +472,7 @@
 					"of it as well"
 				},
 			},
-			insc_burrower_sigil ={
+			insc_burrower_sigil = {
 				name = "Burrower",
 				text = {
 					"When a card bearing this sigil",
@@ -472,14 +480,14 @@
 					"an {C:attention}additional{} card"
 				},
 			},
-			insc_armored_sigil ={
+			insc_armored_sigil = {
 				name = "Armored",
 				text = {
 					"When this card is {C:attention}scored{} it",
 					"{C:attention}returns{} to your hand",
 				},
 			},
-			insc_guardian_sigil ={
+			insc_guardian_sigil = {
 				name = "Guardian",
 				text = {
 					"Cards bearing this sigil are",
@@ -487,7 +495,7 @@
 					"first hand on a {C:attention}boss{} blind"
 				},
 			},
-			insc_corpse_eater_sigil ={
+			insc_corpse_eater_sigil = {
 				name = "Corpse Eater",
 				text = {
 					"When a card is {C:red}discarded{}, any",
@@ -495,7 +503,7 @@
 					"{C:green}guaranteed{} to be {C:attention}drawn"
 				},
 			},
-			insc_handy_sigil ={
+			insc_handy_sigil = {
 				name = "Handy",
 				text = {
 					"When this card is {C:attention}played",
@@ -503,7 +511,7 @@
 					"{C:attention}draw{} a new one"
 				},
 			},
-			insc_morsel_sigil ={
+			insc_morsel_sigil = {
 				name = "Morsel",
 				text = {
 					"When a card bearing this Sigil is",
@@ -511,7 +519,7 @@
 					"and {C:green}levels up{} the {C:attention}last played hand"
 				},
 			},
-			insc_energy_conduit_sigil ={
+			insc_energy_conduit_sigil = {
 				name = "Energy Conduit",
 				text = {
 					"If a card bearing this sigil",
@@ -519,7 +527,7 @@
 					"hand does {C:attention}not{} cost a hand"
 				},
 			},
-			insc_touch_death_sigil ={
+			insc_touch_death_sigil = {
 				name = "Touch of Death",
 				text = {
 					"When a card bearing this Sigil is",
@@ -528,21 +536,21 @@
 					"{C:inactive}(Currently {C:red}X#1#{} {C:inactive}Mult)"
 				},
 			},
-			insc_bone_king_sigil ={
+			insc_bone_king_sigil = {
 				name = "Bone King",
 				text = {
 					"Gain {C:red}+1{} discard for a {C:attention}round{} upon",
 					"{C:attention}drawing{} a card bearing this sigil"
 				},
 			},
-			insc_battery_bearer_sigil ={
+			insc_battery_bearer_sigil = {
 				name = "Battery Bearer",
 				text = {
 					"Gain {C:blue}+1{} hand for a {C:attention}round{} upon",
 					"{C:attention}drawing{} a card bearing this sigil"
 				},
 			},
-			insc_scavenger_sigil ={
+			insc_scavenger_sigil = {
 				name = "Scavenger",
 				text = {
 					"If a card bearing this sigil is",
@@ -550,17 +558,17 @@
 					"recieve {C:money}$2{} for every {C:red}discard{} used",
 				},
 			},
-			insc_kraken_waterborne_sigil ={
+			insc_kraken_waterborne_sigil = {
 				name = "Kraken Waterborne",
 				text = {
 					"This card {C:attention}cannot{} be {C:red}debuffed",
 					"{C:attention}Retriggers{} an additional time",
 					"for {C:attention}every{} Tentacle/Kraken card",
 					"{C:inactive}(Currently {C:green}#1#{}{C:inactive} Times)"
-					
+
 				},
 			},
-			insc_dam_builder_sigil ={
+			insc_dam_builder_sigil = {
 				name = "Dam Builder",
 				text = {
 					"When this card is {C:attention}scored{} an",
@@ -568,7 +576,7 @@
 					"are added to the {C:attention}played{} hand"
 				},
 			},
-			insc_hostage_file_sigil ={
+			insc_hostage_file_sigil = {
 				name = "Hostage File",
 				text = {
 					"When a card bearing this sigil is",
@@ -576,14 +584,14 @@
 					"for twice it's {C:money}sell value{}"
 				},
 			},
-			insc_leader_sigil ={
+			insc_leader_sigil = {
 				name = "Leader",
 				text = {
 					"When {C:attention}scored{} add {C:mult}+5{} Mult to the",
 					"cards on the {C:attention}left{} and {C:attention}right"
 				},
 			},
-			insc_brittle_sigil ={
+			insc_brittle_sigil = {
 				name = "Brittle",
 				text = {
 					"When a card bearing this Sigil is",
@@ -591,22 +599,22 @@
 					"{C:chips}+100{} Chips"
 				},
 			},
-			insc_deathcard_effect ={
-				name="Effect",
-				text={
+			insc_deathcard_effect = {
+				name = "Effect",
+				text = {
 					"placeholder Effect",
 				},
 			},
-			insc_deathcard_condition ={
-				name="Condition",
-				text={
+			insc_deathcard_condition = {
+				name = "Condition",
+				text = {
 					"placeholder Condition",
 				},
-			},	
+			},
 		},
 	},
-	misc={
-		labels={
+	misc = {
+		labels = {
 			insc_bees_within_sigil = "Bees Within Sigil",
 			insc_brittle_sigil = "Brittle Sigil",
 			insc_leader_sigil = "Leader Sigil",
@@ -664,15 +672,16 @@
 		dictionary = {
 			b_create_death_card = "Create Death Card",
 			ml_edition_sigil_enhancement_explanation = {
-					"Playing cards may each have two",
-					"Sigils, and one Enhancement, Edition,",
-					"and Seal"
+				"Playing cards may each have two",
+				"Sigils, and one Enhancement, Edition,",
+				"and Seal"
 			},
 			insc_swap = 'Swap!',
 			insc_deathcard_choose = 'Choose',
+			insc_amoeba_sigild = 'Sigil\'d!'
 		},
-		quips={
- 			insc_deathcard1 = {
+		quips = {
+			insc_deathcard1 = {
 				"Its Death Card time",
 				"Motherfucker!"
 			},
@@ -693,5 +702,5 @@
 				"a Name!"
 			},
 		},
-  	},
+	},
 }
