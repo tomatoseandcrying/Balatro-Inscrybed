@@ -36,7 +36,6 @@ local amoeba = {
                     func = function()
                         play_sound('tarot1')
                         card:juice_up(0.3, 0.5)
-
                         card_played:set_sigil(sigil.key, nil, nil)
                         card_played:juice_up(0.3, 0.5)
                         return true
@@ -51,7 +50,6 @@ local amoeba = {
                     func = function()
                         play_sound('tarot1')
                         card:juice_up(0.3, 0.5)
-
                         return true
                     end
                 }))
