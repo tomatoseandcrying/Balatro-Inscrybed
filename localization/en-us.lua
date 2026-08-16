@@ -58,6 +58,14 @@ return {
 					"it doesn't already have one"
 				}
 			},
+			j_insc_ant_queen = {
+				name = "Ant Queen",
+				text = {
+					"Creates a {C:attention}Worker Ant",
+					"or {C:attention}Flying Ant{} upon",
+					"exiting the {C:attention}shop"
+				}
+			},
 			j_insc_bee = {
 				name = "Bee",
 				text = {
