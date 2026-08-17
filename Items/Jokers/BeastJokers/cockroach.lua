@@ -53,8 +53,9 @@ local cockroach = {
         end
     end,
     get_weight = function(self, weight)
+        local joker = SMODS.find_card("j_insc_cockroach")[1]
         if G.GAME and G.GAME.insc_cockroach_bought then
-            return card.ability.extra.new_weight
+            return joker.ability.extra.new_weight
         end
     end,
     in_pool = function(self, args)
