@@ -1,7 +1,7 @@
 return {
 	descriptions = {
 		Joker = {
-			-- Other Jokers
+			--#region Other Jokers
 			j_insc_lesh_statue = {
 				name = "{C:insc_leshy}Leshy",
 				text = {
@@ -26,7 +26,17 @@ return {
 					"The {C:red,E:1}Scrybe{} of {C:magicks,E:1}Magicks"
 				}
 			},
-			-- Technology Jokers
+			j_insc_deathcard = {
+				name = "#1#",
+				text = {
+					"All cards with a lower rank",
+					'The {C:attention}highest{} rank scored',
+					'{C:diamonds}diamond{} card gives {C:attention}double',
+					'its rank as {C:mult}Mult'
+				}
+			},
+			--#endregion
+			--#region Technology Jokers
 			j_insc_captive_file = {
 				name = "Captive File",
 				text = {
@@ -35,7 +45,8 @@ return {
 					"{C:inactive,s:0.8}(Prevents death)"
 				}
 			},
-			-- Beast Jokers
+			--#endregion
+			--#region Beast Jokers
 			j_insc_squirrel = {
 				name = "Squirrel",
 				text = {
@@ -155,15 +166,7 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
-			j_insc_deathcard = {
-				name = "#1#",
-				text = {
-					"All cards with a lower rank",
-					'The {C:attention}highest{} rank scored',
-					'{C:diamonds}diamond{} card gives {C:attention}double',
-					'its rank as {C:mult}Mult'
-				}
-			},
+			--#endregion
 		},
 		Back = {
 			b_insc_beast_deck = {
