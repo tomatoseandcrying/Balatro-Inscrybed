@@ -2,10 +2,10 @@ local ant_queen = {
     object_type = "Joker",
     name = "Ant Queen",
     key = "ant_queen",
-    insc_type = "None",
+    insc_type = "Insect",
     pos = { x = 1, y = 1 },
     config = { insc_sacrifice_sigils = { "ant", "ant_spawner" }, extra = { copies = 1 } },
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
     yes_pool_flag = 'insc_beast_card',

@@ -4,7 +4,7 @@ local amoeba = {
     key = "amoeba",
     insc_type = "None",
     pos = { x = 4, y = 1 },
-    config = { insc_sacrifice_sigils = { "amorphous" }, extra = { copies = 1 } },
+    config = { insc_sacrifice_sigils = { "Amorphous" }, extra = { copies = 1 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.copies, colours = { HEX("9fff80") } } }
     end,

@@ -23,17 +23,17 @@ SMODS.Atlas {
     key = "insc_sacrifice_sign",
     path = "ShopSignAnimationTemp.png",
     px = 113,
-    py = 57, 
+    py = 57,
     frames = 4,
     atlas_table = 'ANIMATION_ATLAS'
 }
-SMODS.Atlas { 
+SMODS.Atlas {
     key = "spectrals",
     path = "Spectrals.png",
     px = 71,
     py = 95
 }
-SMODS.Atlas { 
+SMODS.Atlas {
     key = "insc_events",
     path = "Events.png",
     px = 34,
@@ -63,18 +63,18 @@ SMODS.Atlas {
     px = 640,
     py = 720
 }
-SMODS.Atlas { 
-    key = 'blinds', 
-    path = 'BlindChips.png', 
-    px = 34, 
-    py = 34, 
-    frames = 21, 
-    atlas_table = 'ANIMATION_ATLAS' 
+SMODS.Atlas {
+    key = 'blinds',
+    path = 'BlindChips.png',
+    px = 34,
+    py = 34,
+    frames = 21,
+    atlas_table = 'ANIMATION_ATLAS'
 }
-SMODS.Atlas({key = 'tech_border', path = 'JokerBorder.png', px = 71, py = 95})
-SMODS.Shader({key = 'bordered', path = 'borderedeffect.fs'})
+SMODS.Atlas({ key = 'tech_border', path = 'JokerBorder.png', px = 71, py = 95 })
+SMODS.Shader({ key = 'bordered', path = 'borderedeffect.fs' })
 BalatroInscrybed = SMODS.current_mod
-local mod_path = ''..BalatroInscrybed.path
+local mod_path = '' .. BalatroInscrybed.path
 
 Deathcard = {}
 BalatroInscrybed.Sigils = {}
@@ -82,29 +82,29 @@ BalatroInscrybed.insc_Events = {}
 G.shared_insc_scribes = {}
 
 assert(SMODS.load_file("Utils/Utility.lua"))()
-assert(SMODS.load_file("Utils/EventUI.lua"))() 
+assert(SMODS.load_file("Utils/EventUI.lua"))()
 assert(SMODS.load_file("Utils/BaseEdits.lua"))()
 assert(SMODS.load_file("Utils/Gameobjects.lua"))()
 assert(SMODS.load_file("Utils/Contexts.lua"))()
 assert(SMODS.load_file("Utils/Draw.lua"))()
 
-local folders = NFS.getDirectoryItems(mod_path.."Items")
+local folders = NFS.getDirectoryItems(mod_path .. "Items")
 local objects = {}
 
 local function collect_item_files(base_fs, rel, out)
     for _, name in ipairs(NFS.getDirectoryItems(base_fs)) do
-        local abs = base_fs.."/"..name
+        local abs = base_fs .. "/" .. name
         local info = NFS.getInfo(abs)
         if info and info.type == "directory" then
-            collect_item_files(abs, rel.."/"..name, out)
+            collect_item_files(abs, rel .. "/" .. name, out)
         elseif info and info.type == "file" and name:match("%.lua$") then
-            table.insert(out, rel.."/"..name)
+            table.insert(out, rel .. "/" .. name)
         end
     end
 end
 
 local files = {}
-collect_item_files(mod_path.."Items", "Items", files)
+collect_item_files(mod_path .. "Items", "Items", files)
 
 local function load_items(curr_obj)
     if curr_obj.init then curr_obj:init() end
@@ -121,7 +121,7 @@ local function load_items(curr_obj)
         elseif CardSleeves and CardSleeves[item.object_type] and not item.ignore then
             CardSleeves[item.object_type](item)
         elseif not item.ignore then
-            print("Error loading item "..item.key.." of unknown type "..item.object_type)
+            print("Error loading item " .. item.key .. " of unknown type " .. item.object_type)
         end
         ::continue::
     end
@@ -130,7 +130,7 @@ end
 for _, rel in ipairs(files) do
     local f, err = SMODS.load_file(rel)
     if not f then
-        print("Error loading item file '"..rel.."': "..tostring(err))
+        print("Error loading item file '" .. rel .. "': " .. tostring(err))
     else
         local ok, curr_obj = pcall(f)
         if ok then
@@ -178,44 +178,60 @@ for _, curr_obj in ipairs(objects) do
     load_items(curr_obj)
 end
 
+SMODS.current_mod.optional_features = {
+    --retrigger_joker = true,
+    --post_trigger = true,
+    --quantum_enhancements = true,
+    object_weights = true,
+    --cardareas = {
+    --discard = true,
+    --deck = true
+    --}
+}
+
 SMODS.Gradient {
     key = 'leshy',
-    colours = {HEX("1e5e2c"), HEX("2c6638"), HEX("3b7748")},
+    colours = { HEX("1e5e2c"), HEX("2c6638"), HEX("3b7748") },
     cycle = 5
 }
 SMODS.Gradient {
     key = 'po3',
-    colours = {HEX("3cb4ff"), HEX("009cfd"), HEX("5ecefe")},
+    colours = { HEX("3cb4ff"), HEX("009cfd"), HEX("5ecefe") },
     cycle = 5
 }
 SMODS.Gradient {
     key = 'grimora',
-    colours = {HEX("748d67"), HEX("839689"), HEX("86a367")},
+    colours = { HEX("748d67"), HEX("839689"), HEX("86a367") },
     cycle = 5
 }
 SMODS.Gradient {
     key = 'magnificus',
-    colours = {HEX("9af8e2"), HEX("ff5aee"), HEX("fee9c6")},
+    colours = { HEX("9af8e2"), HEX("ff5aee"), HEX("fee9c6") },
     cycle = 10
 }
 
 function SMODS.current_mod.reset_game_globals(run_start)
-	if run_start then
-		G.GAME.insc_extra_draw = 0
-        G.shared_insc_scribes["Leshy"] = Sprite(0,0,G.CARD_W,G.CARD_H,G.ASSET_ATLAS["insc_scribe_backs"], {x=0,y=0})
-        G.shared_insc_scribes["PO3"] = Sprite(0,0,G.CARD_W,G.CARD_H,G.ASSET_ATLAS["insc_scribe_backs"], {x=1,y=0})
-        G.shared_insc_scribes["Grimora"] = Sprite(0,0,G.CARD_W,G.CARD_H,G.ASSET_ATLAS["insc_scribe_backs"], {x=0,y=1})
-        G.shared_insc_scribes["Magnificus"] = Sprite(0,0,G.CARD_W,G.CARD_H,G.ASSET_ATLAS["insc_scribe_backs"], {x=1,y=1})
-	end
+    if run_start then
+        G.GAME.insc_extra_draw = 0
+        G.shared_insc_scribes["Leshy"] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["insc_scribe_backs"],
+            { x = 0, y = 0 })
+        G.shared_insc_scribes["PO3"] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["insc_scribe_backs"],
+            { x = 1, y = 0 })
+        G.shared_insc_scribes["Grimora"] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["insc_scribe_backs"],
+            { x = 0, y = 1 })
+        G.shared_insc_scribes["Magnificus"] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["insc_scribe_backs"],
+            { x = 1, y = 1 })
+        G.GAME.insc_cockroach_bought = false
+    end
 end
 
 --if G and G.GAME and G.GAME.modifiers and G.GAME.modifiers.beast
-    
+
 --end
 
 --this is the template for all the other sigils, this was made BEFORE it was changed into it's own object, and is still a seal
 
---SMODS.Sigil { 
+--SMODS.Sigil {
 --    --creates the visuals and sets the local vars
 --    name = "replaece me ",
 --    key = "replace me",
@@ -245,7 +261,7 @@ end
 
 
 
-     
+
 
 ----------------------------------------------
 ------------MOD CODE END----------------------

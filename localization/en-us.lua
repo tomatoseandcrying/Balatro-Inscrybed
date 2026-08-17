@@ -50,6 +50,28 @@ return {
 					"{C:attention}free{} in the shop"
 				}
 			},
+			j_insc_adder = {
+				name = "Adder",
+				text = {
+					{
+						"Retriggers an {C:attention}additional",
+						"time for each Joker",
+						"{C:red}destroyed{} not {C:money}sold",
+						"{C:inactive}(Currently {C:attention}#2#{} {C:inactive}Retriggers)",
+					},
+					{
+						"{X:mult,C:white}X#1#{} Mult"
+					}
+				}
+			},
+			j_insc_alpha = {
+				name = "Alpha",
+				text = {
+					"All cards with a {C:attention}lower{} rank",
+					"than the {C:attention}first{} scored card",
+					"grant {C:mult}+#1#{} Mult"
+				}
+			},
 			j_insc_amoeba = {
 				name = "Amoeba",
 				text = {
@@ -64,6 +86,20 @@ return {
 					"Creates a {C:attention}Worker Ant",
 					"or {C:attention}Flying Ant{} upon",
 					"exiting the {C:attention}shop"
+				}
+			},
+			j_insc_bat = {
+				name = "Bat",
+				text = {
+					"Discarded {C:hearts}Heart{} cards",
+					"become {C:spades}Spades"
+				}
+			},
+			j_insc_beaver = {
+				name = "Beaver",
+				text = {
+					'{C:attention}Stone Cards{} are considered',
+					'{C:attention}Wild Cards{} and all suits'
 				}
 			},
 			j_insc_bee = {
@@ -86,48 +122,12 @@ return {
 					"gain {C:attention}#1#{} copies of the Bee"
 				}
 			},
-			j_insc_bat = {
-				name = "Bat",
-				text = {
-					"Discarded {C:hearts}Heart{} cards",
-					"become {C:spades}Spades"
-				}
-			},
 			j_insc_black_goat = {
 				name = "Black Goat",
 				text = {
 					"When this Joker is {C:red}destroyed",
 					"or {C:money}sold{} it is done so {C:attention}three",
 					"times"
-				}
-			},
-			j_insc_alpha = {
-				name = "Alpha",
-				text = {
-					"All cards with a {C:attention}lower{} rank",
-					"than the {C:attention}first{} scored card",
-					"grant {C:mult}+#1#{} Mult"
-				}
-			},
-			j_insc_adder = {
-				name = "Adder",
-				text = {
-					{
-						"Retriggers an {C:attention}additional",
-						"time for each Joker",
-						"{C:red}destroyed{} not {C:money}sold",
-						"{C:inactive}(Currently {C:attention}#2#{} {C:inactive}Retriggers)",
-					},
-					{
-						"{X:mult,C:white}X#1#{} Mult"
-					}
-				}
-			},
-			j_insc_beaver = {
-				name = "Beaver",
-				text = {
-					'{C:attention}Stone Cards{} are considered',
-					'{C:attention}Wild Cards{} and all suits'
 				}
 			},
 			j_insc_bloodhound = {
@@ -145,6 +145,15 @@ return {
 					'{C:diamonds}diamond{} card gives {C:attention}double',
 					'its rank as {C:mult}Mult'
 				}
+			},
+			j_insc_cockroach = {
+				name = "Cockroach",
+				text = {
+					"{s:0.8,C:inactive}Cockroach may appear multiple times",
+					"This Joker gains {C:chips}+#2#{} Chips for",
+					"every Cockroach bought {C:attention}this run",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+				},
 			},
 			j_insc_deathcard = {
 				name = "#1#",
