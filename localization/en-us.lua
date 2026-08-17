@@ -26,6 +26,15 @@ return {
 					"The {C:red,E:1}Scrybe{} of {C:magicks,E:1}Magicks"
 				}
 			},
+			j_insc_amalgam = {
+				name = "Amalgam",
+				text = {
+					"Gives {X:mult,C:white} X#1# {} Mult",
+					"for each {C:attention}Wild Card",
+					"in your {C:attention}full deck",
+					"{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+				},
+			},
 			j_insc_deathcard = {
 				name = "#1#",
 				text = {

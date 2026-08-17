@@ -2,7 +2,7 @@ local cuckoo = {
     object_type = "Joker",
     name = "Cuckoo",
     key = "cuckoo",
-    insc_type = "None",
+    insc_type = "Avian",
     pos = { x = 6, y = 3 },
     config = { insc_sacrifice_sigils = { "Airborne", "Brood Parasite" }, extra = { odds = 2, copies = 1 } },
     loc_vars = function(self, info_queue, card)
