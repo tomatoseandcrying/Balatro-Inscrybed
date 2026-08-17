@@ -150,8 +150,8 @@ return {
 				name = "Cockroach",
 				text = {
 					"{s:0.8,C:inactive}Cockroach may appear multiple times",
-					"This Joker gains {C:chips}+#2#{} Chips for",
-					"every Cockroach bought {C:attention}this run",
+					"This Joker gains {C:chips}+#2#{} Chips every",
+					"time a {C:attention}Cockroach{} is bought",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
