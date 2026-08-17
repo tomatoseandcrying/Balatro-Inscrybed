@@ -27,6 +27,7 @@ local ant_queen = {
                 if #G.jokers.cards < G.jokers.config.card_limit then
                     local randomcard = pseudorandom_element(ants, 'insc_ant_queen')
                     local ant = create_card('Joker', G.jokers, nil, nil, nil, nil, randomcard, 'ant_queen')
+                    card:juice_up(0.3, 0.5)
                     ant:add_to_deck()
                     G.jokers:emplace(ant)
                     ant:start_materialize()

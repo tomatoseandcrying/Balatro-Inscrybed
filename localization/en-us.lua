@@ -172,6 +172,14 @@ return {
 					"Grants a random {C:attention}Tag{} upon",
 					"beating the {C:attention}Boss Blind{}",
 				},
+			},
+			j_insc_cuckoo = {
+				name = "Cuckoo",
+				text = {
+					"Destroying a {C:inactive}(non-Egg){} Joker creates an {C:attention}Egg{}",
+					"{s:0.88,C:green}#1# in #2#{s:0.88} chance for destroyed {s:0.88,C:attention}cards{s:0.88} to create an Egg",
+					"{C:inactive}(Must have room){}",
+				},
 			}
 			--#endregion
 		},
@@ -705,7 +713,8 @@ return {
 			},
 			insc_swap = 'Swap!',
 			insc_deathcard_choose = 'Choose',
-			insc_amoeba_sigild = 'Sigil\'d!'
+			insc_amoeba_sigild = 'Sigil\'d!',
+			insc_cuckoo_egg = "Egg!"
 		},
 		quips = {
 			insc_deathcard1 = {
