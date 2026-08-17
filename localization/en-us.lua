@@ -166,6 +166,13 @@ return {
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
+			j_insc_coyote = {
+				name = "Coyote",
+				text = {
+					"Grants a random {C:attention}Tag{} upon",
+					"beating the {C:attention}Boss Blind{}",
+				},
+			}
 			--#endregion
 		},
 		Back = {
