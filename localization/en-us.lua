@@ -103,9 +103,14 @@ return {
 			j_insc_ant_queen = {
 				name = "Ant Queen",
 				text = {
-					"Creates a {C:attention}Worker Ant",
-					"or {C:attention}Flying Ant{} upon",
-					"exiting the {C:attention}shop"
+					{
+						"Creates a {C:attention}Worker Ant",
+						"upon exiting the {C:attention}shop"
+					},
+					{
+						"{C:green}1 in 4{} chance to create",
+						"a {C:attention}Flying Ant{} instead"
+					},
 				}
 			},
 			j_insc_bat = {
@@ -161,10 +166,9 @@ return {
 			j_insc_bullfrog = {
 				name = "Bullfrog",
 				text = {
-					"All cards with a lower rank",
-					'The {C:attention}highest{} rank scored',
-					'{C:diamonds}diamond{} card gives {C:attention}double',
-					'its rank as {C:mult}Mult'
+					'Adds {C:attention}double{} the rank of',
+					'{C:attention}highest{} ranked scoring',
+					'{C:diamonds}Diamond{} card to Mult'
 				}
 			},
 			j_insc_cockroach = {
@@ -190,6 +194,14 @@ return {
 					"{s:0.88,C:green}#1# in #2#{s:0.88} chance for destroyed {s:0.88,C:attention}cards{s:0.88} to create an Egg",
 					"{C:inactive}(Must have room){}",
 				},
+			},
+			j_insc_dire_wolf = {
+				name = "Dire Wolf",
+				text = {
+					"Retrigger {C:attention}lowest{} ranked card",
+					"in played hand an amount of",
+					"times equal to {C:attention}half{C:attention} its rank"
+				}
 			}
 			--#endregion
 		},
