@@ -4,7 +4,7 @@ local amoeba = {
     key = "amoeba",
     insc_type = "None",
     pos = { x = 4, y = 1 },
-    config = { insc_sacrifice_sigils = { "Amorphous" }, extra = { copies = 1 } },
+    config = { insc_sacrifice_sigils = { "Amorphous" }, extra = { copies = 1, limit = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.copies, colours = { HEX("9fff80") } } }
     end,
@@ -27,32 +27,49 @@ local amoeba = {
                 sigil_pool[#sigil_pool + 1] = sigil_cen
             end
             local sigil = pseudorandom_element(sigil_pool, 'insc_amoeba')
-            if sigil and card_played.sigil == nil then
-                SMODS.calculate_effect(
-                    { message = localize('insc_amoeba_sigild'), colour = HEX("9fff80") }, card
-                )
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'immediate',
-                    func = function()
-                        play_sound('tarot1')
-                        card:juice_up(0.3, 0.5)
-                        card_played:set_sigil(sigil.key, nil, nil)
-                        card_played:juice_up(0.3, 0.5)
-                        return true
-                    end
-                }))
-            else
-                SMODS.calculate_effect(
-                    { message = localize('k_nope_ex'), colour = G.C.PURPLE }, card
-                )
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'immediate',
-                    func = function()
-                        play_sound('tarot1')
-                        card:juice_up(0.3, 0.5)
-                        return true
-                    end
-                }))
+            if sigil then
+                if card_played.sigil == nil then
+                    SMODS.calculate_effect(
+                        { message = localize('insc_amoeba_sigild'), colour = HEX("9fff80") }, card
+                    )
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'immediate',
+                        func = function()
+                            play_sound('tarot1')
+                            card:juice_up(0.3, 0.5)
+                            card_played:set_sigil(sigil.key, nil, nil)
+                            card_played:juice_up(0.3, 0.5)
+                            return true
+                        end
+                    }))
+                elseif #card_played.sigil < card.ability.extra.limit then
+                    SMODS.calculate_effect({
+                        message = localize('insc_amoeba_sigild'),
+                        colour = HEX("9fff80")
+                    }, card)
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'immediate',
+                        func = function()
+                            play_sound('tarot1')
+                            card:juice_up(0.3, 0.5)
+                            card_played:set_sigil(sigil.key, nil, nil)
+                            card_played:juice_up(0.3, 0.5)
+                            return true
+                        end
+                    }))
+                else
+                    SMODS.calculate_effect(
+                        { message = localize('k_nope_ex'), colour = G.C.PURPLE }, card
+                    )
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'immediate',
+                        func = function()
+                            play_sound('tarot1')
+                            card:juice_up(0.3, 0.5)
+                            return true
+                        end
+                    }))
+                end
             end
             return {
                 func = function()

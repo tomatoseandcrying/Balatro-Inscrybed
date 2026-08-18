@@ -87,7 +87,7 @@ return {
 			j_insc_alpha = {
 				name = "Alpha",
 				text = {
-					"All cards with a {C:attention}lower{} rank",
+					"All cards with a {C:attention}lower rank{}",
 					"than the {C:attention}first{} scored card",
 					"grant {C:mult}+#1#{} Mult"
 				}
@@ -96,8 +96,8 @@ return {
 				name = "Amoeba",
 				text = {
 					"If the {C:attention}first hand{} of the round has",
-					"only {C:attention}#1#{} card, grant it a random {V:1,X:black}sigil{} if",
-					"it doesn't already have one"
+					"only {C:attention}#1#{} card, grant it a random {V:1,X:black}Sigil{}",
+
 				}
 			},
 			j_insc_ant_queen = {
