@@ -4,7 +4,7 @@ local beehive = {
     key = "beehive",
     insc_type = "Insect",
     pos = { x = 2, y = 2 },
-    config = { insc_sacrifice_sigils = {"bees_within"}, extra = { copies = 2 } },
+    config = { insc_sacrifice_sigils = { "bees_within" }, extra = { copies = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.copies } }
     end,
@@ -16,9 +16,9 @@ local beehive = {
     blueprint_compat = false,
     atlas = "leshy_cards",
     calculate = function(self, card, context)
-        if context.selling_card and context.card == card then
+        if context.selling_self then
             for i = 1, card.ability.extra.copies do
-                if #G.jokers.cards <= G.jokers.config.card_limit then 
+                if #G.jokers.cards <= G.jokers.config.card_limit then
                     local card_ = create_card('Joker', G.jokers, nil, nil, nil, nil, "j_insc_bee", 'beehive')
                     card_:add_to_deck()
                     G.jokers:emplace(card_)
@@ -29,4 +29,4 @@ local beehive = {
         end
     end
 }
-return {name = {"BeastJokers"}, items = {beehive}}
+return { name = { "BeastJokers" }, items = { beehive } }
