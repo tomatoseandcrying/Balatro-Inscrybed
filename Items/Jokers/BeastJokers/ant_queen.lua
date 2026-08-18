@@ -20,6 +20,8 @@ local ant_queen = {
             --'j_insc_worker_ant',
             --'j_insc_flying_ant',
             'j_joker',
+            'j_joker',
+            'j_joker',
             'j_chaos'
         }
         if context.ending_shop then
