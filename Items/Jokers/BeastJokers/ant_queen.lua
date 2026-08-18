@@ -6,6 +6,8 @@ local ant_queen = {
     pos = { x = 1, y = 1 },
     config = { insc_sacrifice_sigils = { "ant", "ant_spawner" }, extra = { copies = 1 } },
     loc_vars = function(self, info_queue, card)
+        --info_queue[#info_queue + 1] = G.P_CENTERS.j_insc_worker_ant
+        --info_queue[#info_queue + 1] = G.P_CENTERS.j_insc_flying_ant
         return { vars = {} }
     end,
     yes_pool_flag = 'insc_beast_card',

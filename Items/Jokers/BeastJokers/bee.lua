@@ -6,6 +6,8 @@ local bee = {
     pos = { x = 0, y = 1 },
     config = { insc_sacrifice_sigils = { "airborne" }, extra = { perma_bonus = 5, perma_bonus_mod = 5 } },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_insc_beehive
+        info_queue[#info_queue + 1] = G.P_SIGILS.insc_bees_within
         return {
             vars = {
                 card.ability.extra.perma_bonus_mod,

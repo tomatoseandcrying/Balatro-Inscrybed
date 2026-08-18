@@ -2,7 +2,7 @@ local dire_wolf = {
     object_type = "Joker",
     name = "Dire Wolf",
     key = "dire_wolf",
-    insc_type = "Hooved",
+    insc_type = "Canine",
     pos = { x = 5, y = 0 },
     config = { insc_sacrifice_sigils = { "double" }, extra = { repetitions = 1 } },
     loc_vars = function(self, info_queue, card)

@@ -6,6 +6,7 @@ local beehive = {
     pos = { x = 2, y = 2 },
     config = { insc_sacrifice_sigils = { "bees_within" }, extra = { copies = 2 } },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.j_insc_bee
         return { vars = { card.ability.extra.copies } }
     end,
     yes_pool_flag = 'insc_beast_card',

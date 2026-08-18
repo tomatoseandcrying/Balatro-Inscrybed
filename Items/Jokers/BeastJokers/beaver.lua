@@ -4,9 +4,11 @@ local beaver = {
     key = "beaver",
     insc_type = "None",
     pos = { x = 4, y = 0 },
-    config = { insc_sacrifice_sigils = {"dam_builder"}, extra = {counts_as_enhance = 'm_stone' } },
+    config = { insc_sacrifice_sigils = { "dam_builder" }, extra = { counts_as_enhance = 'm_stone' } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { } }
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
+        return { vars = {} }
     end,
     yes_pool_flag = 'insc_beast_card',
     discovered = false,
@@ -55,4 +57,4 @@ local beaver = {
         end
     end,
 }
-return {name = {"BeastJokers"}, items = {beaver}}
+return { name = { "BeastJokers" }, items = { beaver } }

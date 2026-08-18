@@ -135,8 +135,8 @@ return {
 						"{C:chips}+#2#{} Chips permanently",
 					},
 					{
-						"{C:chips}Chip{} amount increases by {C:attention}#1#",
-						"for {C:attention}every{} other Bee Joker",
+						"Chip amount increases by {C:attention}#1#",
+						"for {C:attention}every{} other {C:attention}Bee{} Joker",
 						"or {V:1,X:black}Sigil{}"
 					}
 				}
@@ -145,7 +145,7 @@ return {
 				name = "Beehive",
 				text = {
 					"Upon {C:money}selling{} this Joker",
-					"gain {C:attention}#1#{} copies of the Bee"
+					"create {C:attention}#1#{} {C:attention}Bees"
 				}
 			},
 			j_insc_black_goat = {
@@ -160,7 +160,7 @@ return {
 				name = "Bloodhound",
 				text = {
 					'{C:attention}Level up{} played hand if all',
-					'{C:attention}scoring{} cards are {C:hearts}hearts'
+					'{C:attention}scoring{} cards are {C:hearts}Hearts'
 				}
 			},
 			j_insc_bullfrog = {
@@ -201,6 +201,15 @@ return {
 					"Retrigger {C:attention}lowest{} ranked card",
 					"in played hand an amount of",
 					"times equal to {C:attention}half{C:attention} its rank"
+				}
+			},
+			j_insc_dire_wolf_pup = {
+				name = "Dire Wolf Pup",
+				text = {
+					"After {C:attention}#2#{} rounds, sell this",
+					"card to {C:attention}evolve{} it into a",
+					"{C:attention}Dire Wolf",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#){}"
 				}
 			}
 			--#endregion
