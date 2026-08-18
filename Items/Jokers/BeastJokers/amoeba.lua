@@ -38,6 +38,7 @@ local amoeba = {
                             play_sound('tarot1')
                             card:juice_up(0.3, 0.5)
                             card_played:set_sigil(sigil.key, nil, nil)
+                            --card_played:set_sigil('insc_bees_within', nil, nil)
                             card_played:juice_up(0.3, 0.5)
                             return true
                         end
