@@ -211,6 +211,15 @@ return {
 					"{C:attention}Dire Wolf",
 					"{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#){}"
 				}
+			},
+			j_insc_elk_fawn = {
+				name = "Elk Fawn",
+				text = {
+					"After {C:attention}#2#{} rounds, sell this",
+					"card to {C:attention}evolve{} it into an",
+					"{C:attention}Elk Fawn",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#){}"
+				}
 			}
 			--#endregion
 		},
