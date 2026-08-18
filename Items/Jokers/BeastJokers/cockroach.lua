@@ -8,7 +8,7 @@ local cockroach = {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chip_gain } }
     end,
-    --yes_pool_flag = 'insc_beast_card',
+    yes_pool_flag = 'insc_beast_card',
     discovered = false,
     rarity = 1,
     cost = 0,

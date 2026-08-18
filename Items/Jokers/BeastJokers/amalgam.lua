@@ -22,7 +22,7 @@ local amalgam = {
             }
         }
     end,
-    --yes_pool_flag = 'insc_beast_card',
+    yes_pool_flag = 'insc_beast_card', --i guess????
     discovered = false,
     rarity = 3,
     cost = 0,
